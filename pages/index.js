@@ -3,10 +3,12 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Card from '../components/Card'
 
+
+
 /* vamos fazer uma solicitação para buscar alguns Pokemons*/
 export async function getStaticProps() {
 
-  const maxPokemons = 231
+  const maxPokemons = 251
   const api = `https://pokeapi.co/api/v2/pokemon/`;
 
   /*  inicia uma solicitação e retorna uma promessa. Quando a solicitação for concluída, 
