@@ -8,7 +8,7 @@ export const getStaticPaths = async () => {
   const maxPokemons = 251
   const api = `https://pokeapi.co/api/v2/pokemon/`
 
-  var index = index - 1
+ //var index = index - 1
 
   const res = await fetch(`${api}/?limit=${maxPokemons}`)
 
@@ -16,7 +16,7 @@ export const getStaticPaths = async () => {
 
   const paths = data.results.map((pokemon, index) => {
     return {
-      params: { pokemonId: index.toString() },
+      params: { pokemonId : (index+1).toString() },
     }
   })
 
@@ -56,7 +56,7 @@ export default function Pokemon({ pokemon }) {
       <div>
         <h3>Tipo:</h3>
         <div className={styles.types_container}>
-          {pokemon.types.map((item, index) => (
+          {pokemon.types.map((item , index ) => (
             <span
               key={index}
               className={`${styles.type} ${styles['type_' + item.type.name]}`}
